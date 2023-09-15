@@ -5,7 +5,8 @@ import time
 
 # if you want to run aotumatically,
 # set `auto` to True
-auto = False
+auto = True
+
 
 def T1():
     def t1():
@@ -55,7 +56,7 @@ def T2():
         tgt_y = (512 - topaste.shape[0]) // 2
         img[tgt_y:tgt_y + topaste.shape[0], tgt_x:tgt_x + topaste.shape[1]] = topaste
         cv.imshow("as", img)
-        cv.waitKey(0)
+        cv.waitKey(1500)
         cv.destroyAllWindows()
 
     t1()
@@ -71,7 +72,7 @@ def T3():
             return 1  # red
         elif 160 < rgb[0] < 180 and 65 < rgb[1] < 90 and rgb[2] < 20:
             return 2  # yellow
-        elif rgb[0] < 20 and 120< rgb[1] < 140 and 50< rgb[2] < 70:
+        elif rgb[0] < 20 and 110 < rgb[1] < 130 and 40 < rgb[2] < 70:
             return 3  # green
         else:
             return 0
@@ -112,7 +113,7 @@ def T3():
                 elif clr == 2:
                     cv.putText(frame, "yellow", yellowTxt, cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
                 elif clr == 3:
-                    cv.putText(frame, "green", yellowTxt, cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                    cv.putText(frame, "green", greenTxt, cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
                 # cv.circle(frame, (cX, cY), 5, (0, 0, 255), -1)
 
         cv.imshow("Image with Centers", frame)
@@ -134,7 +135,12 @@ def main(auto=False):
             thu = int(input("Input Task: "))
         functions[thu - 1]()
 
+
 def deb():
+    '''
+    A debug used function
+    :return:
+    '''
     T3()
 
 
